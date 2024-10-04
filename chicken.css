@@ -1,0 +1,126 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#content {
+    flex: 1; /* Make sure the content takes available space */
+}
+
+.container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2B2D42;
+    width: 100%;
+    position: relative;
+    margin-top: auto;
+}
+
+/* Page title */
+.page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* chicken section */
+.chicken-section {
+    margin-bottom: 20px;
+}
+
+/* Section Title */
+.chicken-section h2 {
+    font-size: 2rem;
+    margin-left: 10px;
+    color: #333;
+}
+
+/* Card Container */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    justify-items: center;
+    width: 100%; /* Ensure card container takes full width */
+}
+
+/* Individual Card */
+.card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    width: 180px; /* Increased width */
+    height: 300px; /* Increased height */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    max-height: 200px; /* Adjusted height of image to match new card height */
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card-text {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-to-cart:hover {
+    background-color: #1CB860;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        width: 100%;
+    }
+}

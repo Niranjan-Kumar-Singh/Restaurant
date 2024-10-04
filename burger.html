@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burger</title>
+  <link rel="stylesheet" href="styles.css"> <!-- include common styles -->
+  <link rel="stylesheet" href="burger.css"><!-- Coffee- specific styles -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <div id="sidebar" class="fixed inset-y-0 left-0 w-64 bg-red-100 p-4 sidebar-content sidebar-hidden z-40">
+    <div class="flex items-center justify-center mb-8">
+      <div class="text-2xl font-semibold">
+        <img src="icons/logo.png" alt="Restaurant logo" class="sidebar-logo w-22 h-22 rounded-full">
+      </div>
+      <button id="closeSidebar" class="text-red-500 font-bold absolute top-4 right-4">
+        <i class="fas fa-times-circle border-0"></i>
+      </button>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <i class="fas fa-shopping-cart"></i>
+          <span>Cart</span>
+          <ul>
+            <li><a href="/cart.html">View Cart</a></li>
+            <li><a href="/checkout.html">Checkout</a></li>
+          </ul>
+        </li>
+        <li>
+          <i class="fas fa-history"></i>
+          <span>Order History</span>
+          <ul>
+            <li><a href="/history.html">View Order History</a></li>
+          </ul>
+        </li>
+        <li>
+          <i class="fas fa-user"></i>
+          <span>Account</span>
+          <ul>
+            <li><a href="/profile.html">View Profile</a></li>
+            <li><a href="/updateaccount.html">Update Account Information</a></li>
+            <li><a href="#" id="logout-button">Logout</a></li>
+          </ul>
+        </li>
+        <li>
+          <i class="fas fa-phone"></i>
+          <span>Support</span>
+          <ul>
+            <li><a href="/support.html#contact-us">Contact Us</a></li>
+            <li><a href="/support.html#faqs">FAQs</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <div id="content" class="transition-all duration-300 ml-0">
+
+    <!-- Navbar -->
+    <header class="text-white p-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <button id="openSidebar">
+          <!-- Three-dot Icon -->
+          <svg id="sidebarToggleIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+        <input id="search-box" type="text" placeholder="Search for items..."
+          class="w-full max-w-md p-2 rounded-lg outline-none">
+        <button id="search-button" class="search-button bg-white text-red-500 p-2 rounded-lg ml-2">Search</button>
+        <!-- Added search button -->
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="relative">
+          <span
+            class="bg-white text-red-500 p-2 rounded-full w-10 h-10 flex items-center justify-center transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer">
+            🔔
+          </span>
+          <span class="absolute inset-0 border border-red-500 rounded-full animate-revolving"></span>
+        </div>
+        <div id="notification-box" class="hidden absolute top-12 right-0 w-64 bg-white shadow-md rounded-lg p-4">
+          <h2>Notifications</h2>
+          <ul id="notification-list">
+            <li>
+              <h3>Buy 1 Get 1 Free</h3>
+              <p>On all pizzas</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>20% Off</h3>
+              <p>On all orders above ₹500</p>
+              <span class="offer-tag">Use Code: OFF20</span>
+            </li>
+            <li>
+              <h3>Free Delivery</h3>
+              <p>On all orders above ₹1000</p>
+              <span class="offer-tag">No Code Required</span>
+            </li>
+            <li>
+              <h3>Flat 30% Off</h3>
+              <p>On all burgers</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>Get 2 Free</h3>
+              <p>On all ice cream orders</p>
+              <span class="offer-tag">Use Code: ICECREAM2</span>
+            </li>
+            <li>
+              <h3>Buy 1 Get 1 Free</h3>
+              <p>On all pizzas</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>20% Off</h3>
+              <p>On all orders above ₹500</p>
+              <span class="offer-tag">Use Code: OFF20</span>
+            </li>
+            <li>
+              <h3>Free Delivery</h3>
+              <p> On all orders above ₹1000</p>
+              <span class="offer-tag">No Code Required</span>
+            </li>
+            <li>
+              <h3>Flat 30% Off</h3>
+              <p>On all burgers</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>Get 2 Free</h3>
+              <p>On all ice cream orders</p>
+              <span class="offer-tag">Use Code: ICECREAM2</span>
+            </li>
+          </ul>
+        </div>
+        <!-- Username button -->
+        <button class="user-name" id="username-button">
+          <img src="images/myPhoto.jpg" alt="Profile Picture" class="profile-picture">
+          <span>Niranjan</span>
+          <span class="caret">
+            <i class="fas fa-caret-down"></i>
+          </span>
+        </button>
+        <!-- Username box -->
+        <div class="username-box" id="username-box">
+          <div class="username-box-header">
+            <img src="images/myPhoto.jpg" alt="Profile Picture" class="profile-picture-large">
+            <h2>Niranjan</h2>
+          </div>
+          <ul>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+          <div class="username-box-footer">
+            <p>Welcome, Niranjan!</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <!-- Page Title -->
+      <h1 class="page-title">Burger Menu</h1>
+      <!-- Section: Burger -->
+<section class="burger-section">
+  <h2>Burger :</h2>
+  <div class="card-container">
+    <div class="card">
+      <img src="images/Burger/Classic Veg.jpg" alt="Classic Veg Burger">
+      <div class="card-text">Classic Veg Burger</div>
+      <div class="price">₹120</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Classic Veg Burger" data-item-price="120">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/aloo tikki burger.jpg" alt="Aloo Tikki Burger">
+      <div class="card-text">Aloo Tikki Burger</div>
+      <div class="price">₹150</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Aloo Tikki Burger" data-item-price="150">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/paneer burger.webp" alt="Paneer Burger">
+      <div class="card-text">Paneer Burger</div>
+      <div class="price">₹180</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Paneer Burger" data-item-price="180">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/maharaja mac burger.jpg" alt="Maharaja Mac Burger">
+      <div class="card-text">Maharaja Mac Burger </div>
+      <div class="price">₹250</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Maharaja Mac Burger" data-item-price="250">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/chicke tandoori burger.jpg" alt="Chicken Tandoori Burger">
+      <div class="card-text">Tandoori Burger</div>
+      <div class="price">₹250</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Tandoori Burger" data-item-price="250">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/butter chicke burger.jpg" alt="Butter Chicken Burger">
+      <div class="card-text">Butter Chicken Burger</div>
+      <div class="price">₹300</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Butter Chicken Burger" data-item-price="300">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/chicken kabab burger.jpg" alt="Chicken Kebab Burger">
+      <div class="card-text">Chicken Kebab Burger</div>
+      <div class="price">₹300</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Chicken Kebab Burger" data-item-price="300">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/spicy veggie burger.jpg" alt="Spicy Veggie Burger">
+      <div class="card-text">Spicy Veggie Burger</div>
+      <div class="price">₹250</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Spicy Veggie Burger" data-item-price="250">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/cheesy veg burger.jpg" alt="Cheesy Veg Burger">
+      <div class="card-text">Cheesy Veg Burger</div>
+      <div class="price">₹300</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Cheesy Veg Burger" data-item-price="300">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/mutton burger.jpg" alt="Mutton Burger">
+      <div class="card-text">Mutton Burger</div>
+      <div class="price">₹350</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Mutton Burger" data-item-price="350">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/fish burger.jpg" alt="Fish Burger">
+      <div class="card-text">Fish Burger</div>
+      <div class="price">₹300</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Fish Burger" data-item-price="300">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/masala burger.jpg" alt="Masala Burger">
+      <div class="card-text">Masala Burger</div>
+      <div class="price">₹250</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Masala Burger" data-item-price="250">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/schezwan burger.jpg" alt="Schezwan Burger">
+      <div class="card-text">Schezwan Burger</div>
+      <div class="price">₹300</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Schezwan Burger" data-item-price="300">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/bbq chicken burger.jpg" alt="BBQ Chicken Burger">
+      <div class="card-text">BBQ Chicken Burger</div>
+      <div class="price">₹400</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="BBQ Chicken Burger" data-item-price="400">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/vada pav burger.jpg" alt="Vada Pav Burger">
+      <div class="card-text">Vada Pav Burger</div>
+      <div class="price">₹250</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Vada Pav Burger" data-item-price="250">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/jumbo burger.jfif" alt="Jumbo Burger">
+      <div class="card-text">Jumbo Burger</div>
+      <div class="price">₹500</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Jumbo Burger" data-item-price="500">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/egg burger.jpg" alt="Egg Burger ">
+      <div class="card-text">Egg Burger </div>
+      <div class="price">₹300</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Egg Burger" data-item-price="300">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/falafel burger.jpeg" alt="Falafel Burger">
+      <div class="card-text">Falafel Burger</div>
+      <div class="price">₹300</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Falafel Burger" data-item-price="300">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/classic hamburger.jpg" alt="Classic Hamburger">
+      <div class="card-text">Classic Hamburger</div>
+      <div class="price">₹300</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Classic Hamburger" data-item-price="300">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/kangaroo burger.jpg" alt="Kangaroo Burger">
+      <div class="card-text">Kangaroo Burger</div>
+      <div class="price">₹550</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Kangaroo Burger" data-item-price="550">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/ostrich burger.jpg" alt="Ostrich Burger ">
+      <div class="card-text">Ostrich Burger </div>
+      <div class="price">₹620</div>
+      <button class="add-to-cart" data-item-id=" 1" data-item-name="Ostrich Burger" data-item-price="620">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/poutine burger.jpeg" alt="Poutine Burger">
+      <div class="card-text">Poutine Burger</div>
+      <div class="price">₹500</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Poutine Burger" data-item-price="500">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/chori burger.jpeg" alt="Chori Burger">
+      <div class="card-text">Chori Burger</div>
+      <div class="price">₹550</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Chori Burger" data-item-price="550">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="images/Burger/Elk Burger.jpg" alt="Elk Burger">
+      <div class="card-text">Elk Burger</div>
+      <div class="price">₹650</div>
+      <button class="add-to-cart" data-item-id="1" data-item-name="Elk Burger" data-item-price="650">Add to Cart</button>
+    </div>
+  </div>
+</section>
+    </div>
+    <!-- Footer -->
+    <footer class="text-center py-4">
+      <p>© 2024 Spice Fusion. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="burger.js"></script>
+</body>
+
+</html>

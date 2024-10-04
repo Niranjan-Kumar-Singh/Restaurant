@@ -1,0 +1,654 @@
+/* Basic reset and body styling */
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: "Sofadi One", system-ui;
+  color: #2B2D42;
+  background-image: url('icons/background.png');
+  background-size: cover; /* Ensures the image covers the entire viewport */
+  background-repeat: repeat; /* Prevents repeating the image */
+  background-position: center; /* Centers the image */
+  background-attachment: fixed; /* Keeps the background image fixed during scrolling */
+}
+
+/* Adjust heading spacing */
+h2 {
+  margin: 0; /* Reduces the space below the heading */
+  padding: 0;
+}
+
+/* Or you can target just specific sections */
+section h2 {
+  font-size: 5rem;
+  font-weight: bold;
+  color: #fff;
+  margin: 0; /* Reduces the space below heading in both sections */
+}
+
+/* Additionally, you can adjust the margin for the sections themselves */
+section {
+  margin: 0; /* Reduce this value to decrease space between sections */
+}
+
+/* Sidebar styles */
+.sidebar-content {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  height: 100vh; /* Full viewport height */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.sidebar-hidden {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.sidebar-visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+#sidebar {
+  background-color: #2B2D42;
+  border-right: 1px solid #8D99AE;
+  padding: 20px;
+  color: #8D99AE;
+}
+
+#sidebar button {
+  padding: 10px;
+  font-size: small;
+}
+
+#sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#sidebar nav ul li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+#sidebar nav ul li i {
+  margin-right: -8px;
+}
+
+#sidebar nav ul li span {
+  font-size: 20px;
+}
+
+#sidebar nav ul li a {
+  text-decoration: none;
+  color: #8D99AE;
+}
+
+#sidebar nav ul li a:hover {
+  color: #fff;
+}
+
+#sidebar nav ul li ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+#sidebar nav ul li ul li {
+  padding: 5px;
+  border-bottom: none;
+  margin-bottom: 5px;
+}
+
+#sidebar nav ul li ul li a {
+  font-size: 14px;
+}
+
+/* Sidebar Logo Image */
+.sidebar-logo {
+  width: 120px; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Optional: Make the logo circular */
+  background-color: white; /* Optional: Add background color */
+  padding: 5px; /* Optional: Add some padding around the image */
+}
+
+#closeSidebar i {
+  font-size: 24px;
+  color: #fff;
+}
+
+#closeSidebar:hover {
+  color: white;
+}
+
+#sidebar .flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Main content styles */
+#content {
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
+}
+
+#content.ml-64 {
+  margin-left: 16rem;
+}
+
+/* Navbar styles */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2B2D42;
+  color: white;
+  height: 50px;
+}
+
+header input {
+  border-radius: 0.375rem;
+  border: 1px solid #8D99AE;
+  font-size: 0.875rem; /* Smaller text */
+  height: 35px;
+}
+
+.search-button {
+  background-color: #EDF2F4;
+  color: #2B2D42;
+  border: 1px solid #8D99AE;
+  cursor: pointer;
+  font-size: 0.875rem; /* Smaller button text */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  height: 35px;
+}
+
+.search-button:hover {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+
+.user-name {
+  color: #2B2D42;
+  font-size: 0.875rem; /* Smaller user name */
+  padding: 0.4rem 0.8rem; /* Reduce padding */
+  height: 35px;
+}
+
+header svg {
+  width: 20px; /* Smaller icon size */
+  height: 20px; /* Smaller icon size */
+}
+
+span {
+  font-size: 0.875rem; /* Adjust span text size */
+  padding: 0.3rem 0.6rem; /* Reduce padding for icons */
+}
+
+#categoryCards {
+  z-index: 1; /* add this line */
+}
+
+/* Category Section Cards */
+#categoryCards .card .card-image {
+  width: 100%;
+  height: 155px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+#categoryCards .card .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Category Section Cards */
+#categoryCards .card {
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700; /* Increase font weight to 700 (bold) */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
+  width: 150px;
+  height: 184px; /* Increase the height to add space after the image */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+#categoryCards .card .text-sm {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  color: #333333;
+  padding: 0.2rem;
+  font-size: 1rem;
+  margin-top: 10px; /* Add some space after the image */
+}
+
+#categoryCards .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #F5F5DC; /* Change the background color of the entire card to gray on hover */
+}
+
+#categoryCards .card:hover .text-sm {
+  background-color: transparent;
+  /* color: #fff; */
+}
+
+/* Best Selling Section - Larger Cards */
+#bestSellingCards .card {
+  background-color: #333333;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  width: 190px;
+  height: 215px; /* Increase the height to add space after the image */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+#bestSellingCards .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#bestSellingCards .card .card-image {
+  width: 100%;
+  height: 165px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+#bestSellingCards .card .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#bestSellingCards .card .text-sm {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333333;
+  border-radius: 10px;
+  color: white;
+  padding: 0.2rem;
+  font-size: 1rem;
+  font-weight: 400; /* Decrease font weight to 400 (normal) */
+  margin-top: 10px; /* Add some space after the image */
+}
+
+/* Three-dot icon hidden when sidebar is visible */
+#openSidebar.hidden {
+  display: none;
+}
+
+/* Best Selling Section - 6 items when sidebar is hidden */
+#bestSellingCards.grid-cols-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+/* Best Selling Section - 5 items when sidebar is visible */
+#bestSellingCards.grid-cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.subtle-divider {
+  border-color: #8D99AE;
+  opacity: 0.6; /* To make the divider subtle */
+}
+
+#search-box {
+  width: 400px;
+  background-color: #ffffff; /* Change to your desired background color */
+  height: 35px; /* Ensure the search box height is consistent */
+  border: 1px solid #8D99AE; /* Optional: border for better visibility */
+  border-radius: 0.375rem; /* Optional: rounded corners */
+  padding: 0 0.5rem; /* Add some padding for better appearance */
+  color: #2B2D42; /* Text color */
+}
+
+footer {
+  background-color: #2B2D42;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+@keyframes revolving {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-revolving {
+  animation: revolving 2s linear infinite; /* Adjust duration as needed */
+  pointer-events: none; /* Prevent hover effect on the border */
+}
+
+
+/* Username button */
+.user-name {
+  color: #2B2D42;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: bold;
+  padding: 0.2rem 0.4rem; /* Reduce padding */
+  height: 35px;
+  background-color: #EDF2F4;
+  border: 1px solid #8D99AE;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.user-name .profile-picture {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.user-name:hover {
+  background-color: #f2f2f2; /* light gray background on hover */
+}
+
+/* Username box */
+.username-box {
+  display: none;
+  position: absolute;
+  top: 3.5rem; /* adjust according to your navbar height */
+  right: 0.5rem; /* reduce margin */
+  width: 250px; /* adjust width */
+  background-color: #f7f7f7; /* light gray background */
+  border-radius: 0.5rem;
+  padding: 0.5rem; /* reduce padding */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ddd;
+  font-family: 'Open Sans', sans-serif; /* add font */
+  z-index: 1000;
+}
+
+.username-box.show {
+  display: block; /* show when clicked */
+}
+
+.user-name .caret {
+  margin-left: auto;
+  transition: transform 0.3s ease;
+}
+
+.user-name .caret i {
+  font-size: 1.2rem;
+  color: #2B2D42;
+}
+
+.username-box-header {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.username-box-header .profile-picture-large {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.username-box-header h2 {
+  font-size: 1.125rem; /* larger font size */
+  font-weight: bold;
+  color: #333;
+}
+
+.username-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 0.2rem; /* reduce margin top */
+}
+
+.username-box li {
+  padding: 0.2rem;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff; /* white background */
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.username-box li:hover {
+  background-color: #f2f2f2; /* light gray background on hover */
+  cursor: pointer;
+}
+
+.username-box li:last-child {
+  border-bottom: none;
+}
+
+.username-box a {
+  text-decoration: none;
+  color: #2196F3; /* blue color */
+}
+
+.username-box a:hover {
+  color: #4CAF50; /* green color */
+}
+
+.username-box-footer {
+  padding: 0.5rem;
+  border-top: 1px solid #ddd;
+}
+
+.username-box-footer p {
+  font-size: 0.875rem; /* smaller font size */
+  color: #666;
+}
+
+/* Notification icon */
+#notification-box {
+  display: none; /* hide by default */
+  position: absolute;
+  top: 3.5rem; /* adjust according to your navbar height */
+  right: 0.5rem; /* reduce margin */
+  width: 20rem; /* increase width */
+  height: 20rem; /* reduce height */
+  background-color: #f7f7f7; /* light gray background */
+  border-radius: 0.5rem;
+  padding: 0.5rem; /* reduce padding */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ddd;
+  overflow-y: auto; /* add scroll bar */
+  font-family: 'Open Sans', sans-serif; /* add font */
+  z-index: 1000;
+}
+
+#notification-box.show {
+  display: block; /* show when clicked */
+}
+
+#notification-box h2 {
+  font-size: 0.9rem; /* reduce font size */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+  background-color: #4CAF50; /* green background */
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+#notification-box h3 {
+  font-size: 0.8rem; /* reduce font size */
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+  color: #2196F3; /* blue color */
+}
+
+#notification-box p {
+  font-size: 0.7rem; /* reduce font size */
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+#notification-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 0.2rem; /* reduce margin top */
+}
+
+#notification-box li {
+  padding: 0.2rem;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff; /* white background */
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#notification-box li:hover {
+  background-color: #f2f2f2; /* light gray background on hover */
+  cursor: pointer;
+}
+
+#notification-box li:last-child {
+  border-bottom: none;
+}
+
+#notification-box .offer-tag {
+  background-color: #FFC107; /* orange background */
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 0.6rem; /* reduce font size */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+#notification-box::-webkit-scrollbar {
+  width: 6px; /* Adjust the width of the scrollbar */
+}
+
+#notification-box::-webkit-scrollbar-thumb {
+  background-color: #4CAF50;
+  border-radius: 10px;
+}
+
+#notification-box::-webkit-scrollbar-track {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  margin: 0.5rem; /* Add some margin to keep the scrollbar inside the box */
+}
+
+/* Modal dialog box CSS */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+
+.modal-title {
+  margin-top: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.modal-body {
+  padding: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.modal-footer {
+  border-top: 1px solid #ddd;
+  padding: 10px;
+  text-align: right;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: -5px;
+  margin-right: -5px;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logout-icon {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.logout-button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.logout-button:hover {
+  background-color: #3e8e41;
+}
+
+#logout-modal {
+  pointer-events: auto;
+}
+
+#logout-modal * {
+  pointer-events: auto;
+}

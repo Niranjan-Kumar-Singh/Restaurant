@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Include common styles -->
+  <link rel="stylesheet" href="coffee.css"> <!-- Coffee-specific styles -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="fixed inset-y-0 left-0 w-64 bg-red-100 p-4 sidebar-content sidebar-hidden z-40">
+    <div class="flex items-center justify-center mb-8">
+      <div class="text-2xl font-semibold">
+        <img src="icons/logo.png" alt="Restaurant logo" class="sidebar-logo w-22 h-22 rounded-full">
+      </div>
+      <button id="closeSidebar" class="text-red-500 font-bold absolute top-4 right-4">
+        <i class="fas fa-times-circle border-0"></i>
+      </button>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <i class="fas fa-shopping-cart"></i>
+          <span>Cart</span>
+          <ul>
+            <li><a href="/cart.html">View Cart</a></li>
+            <li><a href="/checkout.html">Checkout</a></li>
+          </ul>
+        </li>
+        <li>
+          <i class="fas fa-history"></i>
+          <span>Order History</span>
+          <ul>
+            <li><a href="/history.html">View Order History</a></li>
+          </ul>
+        </li>
+        <li>
+          <i class="fas fa-user"></i>
+          <span>Account</span>
+          <ul>
+            <li><a href="/profile.html">View Profile</a></li>
+            <li><a href="/updateaccount.html">Update Account Information</a></li>
+            <li><a href="#" id="logout-button">Logout</a></li>
+          </ul>
+        </li>
+        <li>
+          <i class="fas fa-phone"></i>
+          <span>Support</span>
+          <ul>
+            <li><a href="/support.html#contact-us">Contact Us</a></li>
+            <li><a href="/support.html#faqs">FAQs</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <div id="content" class="transition-all duration-300 ml-0">
+
+    <!-- Navbar -->
+    <header class="text-white p-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <button id="openSidebar">
+          <!-- Three-dot Icon -->
+          <svg id="sidebarToggleIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+        <input id="search-box" type="text" placeholder="Search for items..."
+          class="w-full max-w-md p-2 rounded-lg outline-none">
+        <button id="search-button" class="search-button bg-white text-red-500 p-2 rounded-lg ml-2">Search</button>
+        <!-- Added search button -->
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="relative">
+          <span
+            class="bg-white text-red-500 p-2 rounded-full w-10 h-10 flex items-center justify-center transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer">
+            🔔
+          </span>
+          <span class="absolute inset-0 border border-red-500 rounded-full animate-revolving"></span>
+        </div>
+        <div id="notification-box" class="hidden absolute top-12 right-0 w-64 bg-white shadow-md rounded-lg p-4">
+          <h2>Notifications</h2>
+          <ul id="notification-list">
+            <li>
+              <h3>Buy 1 Get 1 Free</h3>
+              <p>On all pizzas</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>20% Off</h3>
+              <p>On all orders above ₹500</p>
+              <span class="offer-tag">Use Code: OFF20</span>
+            </li>
+            <li>
+              <h3>Free Delivery</h3>
+              <p>On all orders above ₹1000</p>
+              <span class="offer-tag">No Code Required</span>
+            </li>
+            <li>
+              <h3>Flat 30% Off</h3>
+              <p>On all burgers</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>Get 2 Free</h3>
+              <p>On all ice cream orders</p>
+              <span class="offer-tag">Use Code: ICECREAM2</span>
+            </li>
+            <li>
+              <h3>Buy 1 Get 1 Free</h3>
+              <p>On all pizzas</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>20% Off</h3>
+              <p>On all orders above ₹500</p>
+              <span class="offer-tag">Use Code: OFF20</span>
+            </li>
+            <li>
+              <h3>Free Delivery</h3>
+              <p> On all orders above ₹1000</p>
+              <span class="offer-tag">No Code Required</span>
+            </li>
+            <li>
+              <h3>Flat 30% Off</h3>
+              <p>On all burgers</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>Get 2 Free</h3>
+              <p>On all ice cream orders</p>
+              <span class="offer-tag">Use Code: ICECREAM2</span>
+            </li>
+          </ul>
+        </div>
+        <!-- Username button -->
+        <button class="user-name" id="username-button">
+          <img src="images/myPhoto.jpg" alt="Profile Picture" class="profile-picture">
+          <span>Niranjan</span>
+          <span class="caret">
+            <i class="fas fa-caret-down"></i>
+          </span>
+        </button>
+        <!-- Username box -->
+        <div class="username-box" id="username-box">
+          <div class="username-box-header">
+            <img src="images/myPhoto.jpg" alt="Profile Picture" class="profile-picture-large">
+            <h2>Niranjan</h2>
+          </div>
+          <ul>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+          <div class="username-box-footer">
+            <p>Welcome, Niranjan!</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <!-- Page Title -->
+      <h1 class="page-title">Coffee Menu</h1>
+
+      <!-- Section: Espresso Variations -->
+      <section class="coffee-section">
+        <h2>Espresso Variations</h2>
+        <div class="card-container">
+          <div class="card">
+            <img src="images/coffee/Doppio .jpg" alt="Doppio">
+            <div class="card-text">Doppio</div>
+            <div class="price">₹120</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Doppio" data-item-price="120">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Ristretto.jpg" alt="Ristretto">
+            <div class="card-text">Ristretto</div>
+            <div class="price">₹150</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Ristretto" data-item-price="150">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Lungo.jpg" alt="Lungo">
+            <div class="card-text">Lungo</div>
+            <div class="price">₹180</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Lungo" data-item-price="180">Add to
+              Cart</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Espresso-Based Drinks -->
+      <section class="coffee-section">
+        <h2>Espresso-Based Drinks</h2>
+        <div class="card-container">
+          <div class="card">
+            <img src="images/coffee/Americano.jpg" alt="Americano">
+            <div class="card-text">Americano</div>
+            <div class="price">₹100</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Americano" data-item-price="100">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Macchiato.jpg" alt="Macchiato">
+            <div class="card-text">Macchiato</div>
+            <div class="price">₹120</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Macchiato" data-item-price="120">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Cortado.jpg" alt="Cortado">
+            <div class="card-text">Cortado</div>
+            <div class="price">₹150</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Cortado" data-item-price="150">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Cappuccino.jpg" alt="Cappuccino">
+            <div class="card-text">Cappuccino</div>
+            <div class="price">₹180</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Cappuccino" data-item-price="180">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Latte.jpg" alt="Latte">
+            <div class="card-text">Latte</div>
+            <div class="price">₹200</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Latte" data-item-price="200">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Flat White.jpg" alt="Flat White">
+            <div class="card-text">Flat White</div>
+            <div class="price">₹220</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Flat White" data-item-price="220">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Mocha.jpg" alt="Mocha">
+            <div class="card-text">Mocha</div>
+            <div class="price">₹250</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Mocha" data-item-price="250">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Affogato.jpg" alt="Affogato">
+            <div class="card-text">Affogato</div>
+            <div class="price">₹280</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Affogato" data-item-price="280">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Long Black.jpg" alt="Long Black">
+            <div class="card-text">Long Black</div>
+            <div class="price">₹300</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Long Black" data-item-price="300">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Caffe latte .jpg" alt="Caffè Latte">
+            <div class="card-text">Caffè Latte</div>
+            <div class="price">₹320</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Caffè Latte" data-item-price="320">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Caffe americano.jpg" alt="Caffè Americano">
+            <div class="card-text">Caffè Americano</div>
+            <div class="price">₹350</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Caffè Americano" data-item-price="350">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Irish Coffee .jpg" alt="Irish Coffee">
+            <div class="card-text">Irish Coffee</div>
+            <div class="price">₹380</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Irish Coffee" data-item-price="380">Add to
+              Cart</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Stronger and Specialty Espresso Drinks -->
+      <section class="coffee-section">
+        <h2>Stronger and Specialty Espresso Drinks</h2>
+        <div class="card-container">
+          <div class="card">
+            <img src="images/coffee/Espresso Con Panna.jpg" alt="Espresso con Panna">
+            <div class="card-text">Espresso con Panna</div>
+            <div class="price">₹100</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Espresso con Panna" data-item-price="100">Add
+              to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Red Eye .jpg" alt="Red Eye">
+            <div class="card-text">Red Eye</div>
+            <div class="price">₹120</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Red Eye" data-item-price="120">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Black Eye .jpg" alt="Black Eye">
+            <div class="card-text">Black Eye</div>
+            <div class="price">₹150</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Black Eye" data-item-price="150">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Espresso.jpg" alt="Espresso">
+            <div class="card-text">Espresso</div>
+            <div class="price">₹180</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Espresso" data-item-price="180">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Espresso shot.jpg" alt="Espresso Shot">
+            <div class="card-text">Espresso Shot</div>
+            <div class="price">₹200</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Espresso Shot" data-item-price="200">Add to
+              Cart</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Cold and Iced Coffees -->
+      <section class="coffee-section">
+        <h2>Cold and Iced Coffees</h2>
+        <div class="card-container">
+          <div class="card">
+            <img src="images/coffee/Iced Americano.jpg" alt="Iced Americano">
+            <div class="card-text">Iced Americano</div>
+            <div class="price">₹100</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Iced Americano" data-item-price="100">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Iced Latte .jpg" alt="Iced Latte">
+            <div class="card-text">Iced Latte</div>
+            <div class="price">₹120</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Iced Latte" data-item-price="120">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Iced Cappuccino.jpg" alt="Iced Cappuccino">
+            <div class="card-text">Iced Cappuccino</div>
+            <div class="price">₹150</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Iced Cappuccino" data-item-price="150">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Frappé .jpg" alt="Frappé">
+            <div class="card-text">Frappé</div>
+            <div class="price">₹180</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Frappé" data-item-price="180">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Cold Brew.jpg" alt="Cold Brew">
+            <div class="card-text">Cold Brew</div>
+            <div class="price">₹200</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Cold Brew" data-item-price="200">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Nitro Coffee.jpg" alt="Nitro Coffee">
+            <div class="card-text">Nitro Coffee</div>
+            <div class="price">₹220</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Nitro Coffee" data-item-price="220">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Iced Mocha.jpg" alt="Iced Mocha">
+            <div class="card-text">Iced Mocha</div>
+            <div class="price">₹250</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Iced Mocha" data-item-price="250">Add to
+              Cart</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Coffee Alternatives -->
+      <section class="coffee-section">
+        <h2>Specialty and Flavored Coffees:</h2>
+        <div class="card-container">
+          <div class="card">
+            <img src="images/coffee/Hazelnut Coffee.jpg" alt="Hazelnut Coffee">
+            <div class="card-text">Hazelnut Coffee</div>
+            <div class="price">₹100</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Hazelnut Coffee" data-item-price="100">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Caramel Latte.jpg" alt="Caramel Latte">
+            <div class="card-text">Caramel Latte</div>
+            <div class="price">₹120</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Caramel Latte" data-item-price="120">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Vanilla Latte .jpg" alt="Vanilla Latte">
+            <div class="card-text">Vanilla Latte </div>
+            <div class="price">₹150</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Vanilla Latte" data-item-price="150">Add to
+              Cart</button>
+            </div>
+            <div class="card">
+              <img src="images/coffee/Butterscotch Coffee.jpg" alt="Butterscotch Coffee">
+              <div class="card-text">Butterscotch Coffee</div>
+              <div class="price">₹180</div>
+              <button class="add-to-cart" data-item-id="1" data-item-name="Butterscotch Coffee"
+                data-item-price="180">Add
+                to Cart</button>
+            </div>
+            <div class="card">
+              <img src="images/coffee/Café Mocha with Chocolate.jpg" alt="Coffee Mocha">
+              <div class="card-text">Café Mocha with Chocolate</div>
+              <div class="price">₹200</div>
+              <button class="add-to-cart" data-item-id="1" data-item-name="Café Mocha with Chocolate"
+                data-item-price="200">Add to Cart</button>
+            </div>
+            <div class="card">
+              <img src="images/coffee/Pumpkin Spice Latte .jpg" alt="Coffee Mocha">
+              <div class="card-text">Pumpkin Spice Latte </div>
+              <div class="price">₹220</div>
+              <button class="add-to-cart" data-item-id="1" data-item-name="Pumpkin Spice Latte"
+                data-item-price="220">Add
+                to Cart</button>
+            </div>
+          </div>
+      </section>
+
+      <!-- Section: Seasonal and Special Blends -->
+      <section class="coffee-section">
+        <h2>Traditional Indian Coffee Types</h2>
+        <div class="card-container">
+          <div class="card">
+            <img src="images/coffee/Caffe au lait.jpg" alt="Pumpkin Spice Latte">
+            <div class="card-text">Caffe au lait</div>
+            <div class="price">₹100</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Caffe au lait" data-item-price="100">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Romano.jpg" alt="Peppermint Mocha">
+            <div class="card-text">Romano</div>
+            <div class="price">₹120</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Romano" data-item-price="120">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Caffe corretto.jpg" alt="Peppermint Mocha">
+            <div class="card-text">Caffe Corretto</div>
+            <div class="price">₹150</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Caffe Corretto" data-item-price="150">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/coffee/Brave.jpg" alt="Peppermint Mocha">
+            <div class="card-text">Brave</div>
+            <div class="price">₹180</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Brave" data-item-price="180">Add to
+              Cart</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-4">
+      <p>© 2024 Spice Fusion. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="coffee.js"></script>
+  </div>
+</body>
+
+</html>

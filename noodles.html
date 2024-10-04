@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noodles</title>
+  <link rel="stylesheet" href="styles.css"> <!-- include common styles -->
+  <link rel="stylesheet" href="noodles.css"><!-- Noodles- specific styles -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <div id="sidebar" class="fixed inset-y-0 left-0 w-64 bg-red-100 p-4 sidebar-content sidebar-hidden z-40">
+    <div class="flex items-center justify-center mb-8">
+      <div class="text-2xl font-semibold">
+        <img src="icons/logo.png" alt="Restaurant logo" class="sidebar-logo w-22 h-22 rounded-full">
+      </div>
+      <button id="closeSidebar" class="text-red-500 font-bold absolute top-4 right-4">
+        <i class="fas fa-times-circle border-0"></i>
+      </button>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <i class="fas fa-shopping-cart"></i>
+          <span>Cart</span>
+          <ul>
+            <li><a href="/cart.html">View Cart</a></li>
+            <li><a href="/checkout.html">Checkout</a></li>
+          </ul>
+        </li>
+        <li>
+          <i class="fas fa-history"></i>
+          <span>Order History</span>
+          <ul>
+            <li><a href="/history.html">View Order History</a></li>
+          </ul>
+        </li>
+        <li>
+          <i class="fas fa-user"></i>
+          <span>Account</span>
+          <ul>
+            <li><a href="/profile.html">View Profile</a></li>
+            <li><a href="/updateaccount.html">Update Account Information</a></li>
+            <li><a href="#" id="logout-button">Logout</a></li>
+          </ul>
+        </li>
+        <li>
+          <i class="fas fa-phone"></i>
+          <span>Support</span>
+          <ul>
+            <li><a href="/support.html#contact-us">Contact Us</a></li>
+            <li><a href="/support.html#faqs">FAQs</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <!-- Main Content -->
+  <div id="content" class="transition-all duration-300 ml-0">
+
+    <!-- Navbar -->
+    <header class="text-white p-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <button id="openSidebar">
+          <!-- Three-dot Icon -->
+          <svg id="sidebarToggleIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+        <input id="search-box" type="text" placeholder="Search for items..."
+          class="w-full max-w-md p-2 rounded-lg outline-none">
+        <button id="search-button" class="search-button bg-white text-red-500 p-2 rounded-lg ml-2">Search</button>
+        <!-- Added search button -->
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="relative">
+          <span
+            class="bg-white text-red-500 p-2 rounded-full w-10 h-10 flex items-center justify-center transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer">
+            🔔
+          </span>
+          <span class="absolute inset-0 border border-red-500 rounded-full animate-revolving"></span>
+        </div>
+        <div id="notification-box" class="hidden absolute top-12 right-0 w-64 bg-white shadow-md rounded-lg p-4">
+          <h2>Notifications</h2>
+          <ul id="notification-list">
+            <li>
+              <h3>Buy 1 Get 1 Free</h3>
+              <p>On all pizzas</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>20% Off</h3>
+              <p>On all orders above ₹500</p>
+              <span class="offer-tag">Use Code: OFF20</span>
+            </li>
+            <li>
+              <h3>Free Delivery</h3>
+              <p>On all orders above ₹1000</p>
+              <span class="offer-tag">No Code Required</span>
+            </li>
+            <li>
+              <h3>Flat 30% Off</h3>
+              <p>On all burgers</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>Get 2 Free</h3>
+              <p>On all ice cream orders</p>
+              <span class="offer-tag">Use Code: ICECREAM2</span>
+            </li>
+            <li>
+              <h3>Buy 1 Get 1 Free</h3>
+              <p>On all pizzas</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>20% Off</h3>
+              <p>On all orders above ₹500</p>
+              <span class="offer-tag">Use Code: OFF20</span>
+            </li>
+            <li>
+              <h3>Free Delivery</h3>
+              <p> On all orders above ₹1000</p>
+              <span class="offer-tag">No Code Required</span>
+            </li>
+            <li>
+              <h3>Flat 30% Off</h3>
+              <p>On all burgers</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>Get 2 Free</h3>
+              <p>On all ice cream orders</p>
+              <span class="offer-tag">Use Code: ICECREAM2</span>
+            </li>
+          </ul>
+        </div>
+        <!-- Username button -->
+        <button class="user-name" id="username-button">
+          <img src="images/myPhoto.jpg" alt="Profile Picture" class="profile-picture">
+          <span>Niranjan</span>
+          <span class="caret">
+            <i class="fas fa-caret-down"></i>
+          </span>
+        </button>
+        <!-- Username box -->
+        <div class="username-box" id="username-box">
+          <div class="username-box-header">
+            <img src="images/myPhoto.jpg" alt="Profile Picture" class="profile-picture-large">
+            <h2>Niranjan</h2>
+          </div>
+          <ul>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+          <div class="username-box-footer">
+            <p>Welcome, Niranjan!</p>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Main Content -->
+    <div class="container">
+      <!-- Page Title -->
+      <h1 class="page-title">Noodles Menu</h1>
+      <!-- Section: Noodles -->
+      <section class="noodles-section">
+        <h2>Noodles :</h2>
+        <div class="card-container">
+          <div class="card">
+            <img src="images/Noodles/Hakka.jpeg" alt="Hakka Noodles">
+            <div class="card-text">Hakka Noodles</div>
+            <div class="price">₹70</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Hakka Noodles" data-item-price="70">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Chowmein.jpg" alt="Chowmein">
+            <div class="card-text">Chowmein</div>
+            <div class="price">₹70</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Chowmein" data-item-price="70">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Sevai.webp" alt="Sevai/Idiyappam">
+            <div class="card-text">Sevai/Idiyappam</div>
+            <div class="price">₹50</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Sevai/Idiyappam" data-item-price="50">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Soba.jpg" alt="Soba Noodles">
+            <div class="card-text">Soba Noodles </div>
+            <div class="price">₹150</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Soba Noodles" data-item-price="150">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Maggi.jpeg" alt="Maggi Noodles">
+            <div class="card-text">Maggi Noodles</div>
+            <div class="price">₹30</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Maggi Noodles" data-item-price="30">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Yippee.jpeg" alt="Yippee Noodles">
+            <div class="card-text">Yippee Noodles</div>
+            <div class="price">₹30</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Yippee Noodles" data-item-price="30">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Ramen.jpeg" alt="Ramen">
+            <div class="card-text">Ramen</div>
+            <div class="price">₹80</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Ramen" data-item-price="80">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Glass.jpg" alt="Glass Noodles">
+            <div class="card-text">Glass Noodles</div>
+            <div class="price">₹80</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Glass Noodles" data-item-price="80">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Thukpa.jpg" alt="Thukpa Noodles">
+            <div class="card-text">Thukpa Noodles</div>
+            <div class="price">₹60</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Thukpa Noodles" data-item-price="60">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Pad Thai.jpeg" alt="Pad Thai Noodles">
+            <div class="card-text">Pad Thai Noodles</div>
+            <div class="price">₹80</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Pad Thai Noodles" data-item-price="80">Add to
+              Cart</button>
+          </div>
+          <div class="card ">
+            <img src="images/Noodles/Rice.jpeg" alt="Rice Noodles">
+            <div class="card-text">Rice Noodles</div>
+            <div class="price">₹30</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Rice Noodles" data-item-price="30">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Schezwan.jpeg" alt="Schezwan Noodles">
+            <div class="card-text">Schezwan Noodles</div>
+            <div class="price">₹80</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Schezwan Noodles" data-item-price="80">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Rotini.jpeg" alt="Rotini">
+            <div class="card-text">Rotini</div>
+            <div class="price">₹60</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Rotini" data-item-price="60">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Chopsuey.webp" alt="Chopsuey Noodles">
+            <div class="card-text">Chopsuey Noodles</div>
+            <div class="price">₹60</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Chopsuey Noodles" data-item-price="60">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Udon.jpeg" alt="Udon">
+            <div class="card-text">Udon</div>
+            <div class="price">₹100</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Udon" data-item-price="100">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Hokkien.jpeg" alt="Hokkien Noodles">
+            <div class="card-text">Hokkien Noodles</div>
+            <div class="price">₹70</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Hokkien Noodles" data-item-price="70">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Shirataki.jpg" alt="Shirataki Noodles">
+            <div class="card-text">Shirataki Noodles </div>
+            <div class="price">₹60</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Shirataki Noodles" data-item-price="60">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Vermicelli.jpeg" alt="Vermicelli ">
+            <div class="card-text">Vermicelli </div>
+            <div class="price">₹40</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Vermicelli" data-item-price="40">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Mee Goreng.jpg" alt="Mee Goreng">
+            <div class="card-text">Mee Goreng</div>
+            <div class="price">₹80</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Mee Goreng" data-item-price="80">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Kushari.jpg" alt="Kushari Noodles">
+            <div class="card-text">Kushari Noodles</div>
+            <div class="price">₹100</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Kushari Noodles" data-item-price="100">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Macaroni.jpg" alt=" Macaroni ">
+            <div class="card-text">Macaroni</div>
+            <div class="price">₹50</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Macaroni" data-item-price="50">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Spaetzle.webp" alt="Spaetzle">
+            <div class="card-text">Spaetzle</div>
+            <div class="price">₹80</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Spaetzle" data-item-price="80">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Korean Naengmyeon.jpeg" alt="Korean Naengmyeon ">
+            <div class="card-text">Korean Naengmyeon </div>
+            <div class="price">₹120</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Korean Naengmyeon" data-item-price="120">Add
+              to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Noodles/Fideuà.webp" alt="Fideuà">
+            <div class="card-text">Fideuà</div>
+            <div class="price">₹80</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Fideuà" data-item-price="80">Add to
+              Cart</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Footer -->
+    <footer class="text-center py-4">
+      <p>© 2024 Spice Fusion. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="noodles.js"></script>
+</body>
+
+</html>

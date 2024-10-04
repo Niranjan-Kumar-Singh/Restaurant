@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="profile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1 id="profile">Profile</h1>
+    <div class="section">
+      <h2 class="section-title">Account Information</h2>
+      <div class="profile-picture">
+        <img src="images/myPhoto.jpg" alt="Profile Picture">
+      </div>
+      <div class="profile-info">
+        <p><strong>Name: </strong>Niranjan Kumar Singh</p>
+        <p><strong>Email: </strong>niranjansingh1419@gmail.com</p>
+        <p><strong>Phone: </strong>+91 938277xxxx</p>
+        <p><strong>Address: </strong>123 Main St, Anytown, USA</p>
+        <p><strong>City: </strong>Anytown</p>
+        <p><strong>State: </strong>USA</p>
+        <p><strong>Zip: </strong>12345</p>
+      </div>
+      <button class="edit-button" onclick="location.href='updateaccount.html'">Edit Profile</button>
+    </div>
+    <div class="section">
+      <h2 class="section-title">Order History</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>12345</td>
+            <td>2022-01-01</td>
+            <td>$100.00</td>
+            <td>Delivered</td>
+          </tr>
+          <tr>
+            <td>67890</td>
+            <td>2022-01-15</td>
+            <td>$50.00</td>
+            <td>Cancelled</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html> 

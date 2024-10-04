@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+#cart-table {
+    width: 80%;
+    margin: 40px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#cart-table th,
+#cart-table td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+}
+
+#cart-table th {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+#cart-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#cart-table tr:hover {
+    background-color: #ddd;
+}
+
+#cart-table td button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#cart-table td button:hover {
+    background-color: #3e8e41;
+}
+
+#checkout-btn {
+    background-color: #4CAF50;
+    border-radius: 10px;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+}
+
+#checkout-btn:hover {
+    background-color: #3e8e41;
+}
+
+.quantity-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .quantity-controls button {
+    border: none;
+    border-radius: 10%;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+  }
+
+.quantity-controls button:hover {
+    background-color: #3e8e41;
+}
+
+.total-row {
+    font-weight: bold;
+    background-color: #f0f0f0;
+    border-top: 1px solid #ccc;
+}
+
+.total-row td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

@@ -1,0 +1,123 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Make sure the body takes 100% width */
+}
+
+#content {
+    flex: 1;
+}
+
+.container {
+    width: 100%; /* Ensure container takes full width */
+    max-width: 100%; /* Prevent any restriction on width */
+    margin: 0 auto; /* Center content horizontally */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    flex: 1; /* Ensures that the container takes up the remaining space */
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2B2D42;
+    width: 100%;
+    position: relative;
+    margin-top: auto;
+}/* Pizza-Specific Styles */
+
+/* Page title */
+.page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Pizza section */
+.pizza-section {
+    margin-bottom: 20px;
+  }
+  
+  .pizza-section h2 {
+    font-size: 2rem;
+    margin-left: 10px;
+    color: #333;
+  }
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    justify-items: center;
+    width: 100%;
+  }
+  
+  .card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    width: 180px;
+    height: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .card-text {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    text-align: center;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .add-to-cart {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-to-cart:hover {
+    background-color: #1CB860;
+  }
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        width: 100%;
+    }
+}

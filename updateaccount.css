@@ -1,0 +1,76 @@
+/* Add some basic styling to make it look more attractive */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 15px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  #update-account {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #4CAF50;
+  }
+  
+  form {
+    margin-top: 10px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 3px;
+  }
+  
+  input[type="text"], input[type="email"], input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 2px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .profile-picture-update {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin: 5px auto;
+    position: relative;
+  }
+  
+  .profile-picture-update img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  
+  .profile-picture-update input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #3e8e41;
+  }

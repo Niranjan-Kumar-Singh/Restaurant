@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Icecream</title>
+  <link rel="stylesheet" href="styles.css"> <!-- include common styles -->
+  <link rel="stylesheet" href="icecream.css"><!-- icecream- specific styles -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <div id="sidebar" class="fixed inset-y-0 left-0 w-64 bg-red-100 p-4 sidebar-content sidebar-hidden z-40">
+    <div class="flex items-center justify-center mb-8">
+      <div class="text-2xl font-semibold">
+        <img src="icons/logo.png" alt="Restaurant logo" class="sidebar-logo w-22 h-22 rounded-full">
+      </div>
+      <button id="closeSidebar" class="text-red-500 font-bold absolute top-4 right-4">
+        <i class="fas fa-times-circle border-0"></i>
+      </button>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <i class="fas fa-shopping-cart"></i>
+          <span>Cart</span>
+          <ul>
+            <li><a href="/cart.html">View Cart</a></li>
+            <li><a href="/checkout.html">Checkout</a></li>
+          </ul>
+        </li>
+        <li>
+          <i class="fas fa-history"></i>
+          <span>Order History</span>
+          <ul>
+            <li><a href="/history.html">View Order History</a></li>
+          </ul>
+        </li>
+        <li>
+          <i class="fas fa-user"></i>
+          <span>Account</span>
+          <ul>
+            <li><a href="/profile.html">View Profile</a></li>
+            <li><a href="/updateaccount.html">Update Account Information</a></li>
+            <li><a href="#" id="logout-button">Logout</a></li>
+          </ul>
+        </li>
+        <li>
+          <i class="fas fa-phone"></i>
+          <span>Support</span>
+          <ul>
+            <li><a href="/support.html#contact-us">Contact Us</a></li>
+            <li><a href="/support.html#faqs">FAQs</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <div id="content" class="transition-all duration-300 ml-0">
+
+    <!-- Navbar -->
+    <header class="text-white p-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <button id="openSidebar">
+          <!-- Three-dot Icon -->
+          <svg id="sidebarToggleIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+        <input id="search-box" type="text" placeholder="Search for items..."
+          class="w-full max-w-md p-2 rounded-lg outline-none">
+        <button id="search-button" class="search-button bg-white text-red-500 p-2 rounded-lg ml-2">Search</button>
+        <!-- Added search button -->
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="relative">
+          <span
+            class="bg-white text-red-500 p-2 rounded-full w-10 h-10 flex items-center justify-center transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer">
+            🔔
+          </span>
+          <span class="absolute inset-0 border border-red-500 rounded-full animate-revolving"></span>
+        </div>
+        <div id="notification-box" class="hidden absolute top-12 right-0 w-64 bg-white shadow-md rounded-lg p-4">
+          <h2>Notifications</h2>
+          <ul id="notification-list">
+            <li>
+              <h3>Buy 1 Get 1 Free</h3>
+              <p>On all pizzas</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>20% Off</h3>
+              <p>On all orders above ₹500</p>
+              <span class="offer-tag">Use Code: OFF20</span>
+            </li>
+            <li>
+              <h3>Free Delivery</h3>
+              <p>On all orders above ₹1000</p>
+              <span class="offer-tag">No Code Required</span>
+            </li>
+            <li>
+              <h3>Flat 30% Off</h3>
+              <p>On all burgers</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>Get 2 Free</h3>
+              <p>On all ice cream orders</p>
+              <span class="offer-tag">Use Code: ICECREAM2</span>
+            </li>
+            <li>
+              <h3>Buy 1 Get 1 Free</h3>
+              <p>On all pizzas</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>20% Off</h3>
+              <p>On all orders above ₹500</p>
+              <span class="offer-tag">Use Code: OFF20</span>
+            </li>
+            <li>
+              <h3>Free Delivery</h3>
+              <p> On all orders above ₹1000</p>
+              <span class="offer-tag">No Code Required</span>
+            </li>
+            <li>
+              <h3>Flat 30% Off</h3>
+              <p>On all burgers</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>Get 2 Free</h3>
+              <p>On all ice cream orders</p>
+              <span class="offer-tag">Use Code: ICECREAM2</span>
+            </li>
+          </ul>
+        </div>
+        <!-- Username button -->
+        <button class="user-name" id="username-button">
+          <img src="images/myPhoto.jpg" alt="Profile Picture" class="profile-picture">
+          <span>Niranjan</span>
+          <span class="caret">
+            <i class="fas fa-caret-down"></i>
+          </span>
+        </button>
+        <!-- Username box -->
+        <div class="username-box" id="username-box">
+          <div class="username-box-header">
+            <img src="images/myPhoto.jpg" alt="Profile Picture" class="profile-picture-large">
+            <h2>Niranjan</h2>
+          </div>
+          <ul>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+          <div class="username-box-footer">
+            <p>Welcome, Niranjan!</p>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Main Content -->
+    <div class="container">
+      <!-- Page Title -->
+      <h1 class="page-title">Ice cream Menu</h1>
+      <!-- Section: Ice cream -->
+      <section class="icecream-section">
+        <h2>Ice cream :</h2>
+        <div class="card-container">
+          <div class="card">
+            <img src="images/Ice cream/Red Bean.jpeg" alt="Red Bean">
+            <div class="card-text">Red Bean</div>
+            <div class="price">₹80</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Red Bean" data-item-price="80">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Madagascar Vanilla.jpg" alt="Madagascar Vanilla">
+            <div class="card-text">Madagascar Vanilla</div>
+            <div class="price">₹100</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Madagascar Vanilla" data-item-price="100">Add
+              to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Sicilian Pistachio.jpg" alt="Sicilian Pistachio">
+            <div class="card-text">Sicilian Pistachio</div>
+            <div class="price">₹120</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Sicilian Pistachio" data-item-price="120">Add
+              to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/French Vanilla Bean.jpg" alt="French Vanilla Bean">
+            <div class="card-text">French Vanilla Bean </div>
+            <div class="price">₹150</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="French Vanilla Bean" data-item-price="150">Add
+              to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Tahitian Vanilla.webp" alt="Tahitian Vanilla">
+            <div class="card-text">Tahitian Vanilla</div>
+            <div class="price">₹200</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Tahitian Vanilla" data-item-price="200">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Alphonso Mango Sorbet.jpeg" alt="Alphonso Mango Sorbet">
+            <div class="card-text">Alphonso Mango</div>
+            <div class="price">₹100</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Alphonso Mango" data-item-price="100">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Blueberry Cheesecake.jpeg" alt="Blueberry Cheesecake Ice Cream">
+            <div class="card-text">Blueberry Cheesecake Ice Cream</div>
+            <div class="price">₹150</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Blueberry Cheesecake Ice Cream"
+              data-item-price="150">Add to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Blackcurrant Delight.jpeg" alt="Blackcurrant Delight">
+            <div class="card-text">Blackcurrant Delight</div>
+            <div class="price">₹120</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Blackcurrant Delight" data-item-price="120">Add
+              to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Raspberry Sorbet.jpeg" alt="Raspberry Sorbet">
+            <div class="card-text">Raspberry Sorbet</div>
+            <div class="price">₹100</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Raspberry Sorbet" data-item-price="100">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Roasted Almond with Honey.webp" alt="Roasted Almond with Honey">
+            <div class="card-text">Roasted Almond with Honey</div>
+            <div class="price">₹150</div>
+            <button class="add-to-cart" data-item-id=" 1" data-item-name="Roasted Almond with Honey"
+              data-item-price="150">Add to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Pista Badam with Saffron.jpg" alt="Pista Badam with Saffron">
+            <div class="card-text">Pista Badam Saffron</div>
+            <div class="price">₹180</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Pista Badam Saffron" data-item-price="180">Add
+              to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Cashew Nut Caramel.webp" alt="Cashew Nut Caramel">
+            <div class="card-text">Cashew Nut Caramel</div>
+            <div class="price">₹150</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Cashew Nut Caramel" data-item-price="150">Add
+              to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Walnut Fudge.jpeg" alt="Walnut Fudge">
+            <div class="card-text">Walnut Fudge</div>
+            <div class="price">₹120</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Walnut Fudge" data-item-price="120">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Choco Bar.jpeg" alt="Choco Bar">
+            <div class="card-text">Choco Bar</div>
+            <div class="price">₹100</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Choco Bar" data-item-price="100">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Cornetto.jpg" alt="Cornetto">
+            <div class="card-text">Cornetto</div>
+            <div class="price">₹80</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Cornetto" data-item-price="80">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Vanilla.jpg" alt="Vanilla">
+            <div class="card-text">Vanilla</div>
+            <div class="price">₹80</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Vanilla" data-item-price="80">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Low Fat Strawberry.jpg" alt="Low-Fat Strawberry">
+            <div class="card-text">Low-Fat Strawberry </div>
+            <div class="price">₹100</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Low-Fat Strawberry" data-item-price="100">Add
+              to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Rasmalai.jpg" alt="Rasmalai Ice Cream ">
+            <div class="card-text">Rasmalai Ice Cream </div>
+            <div class="price">₹550</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Rasmalai Ice Cream" data-item-price="550">Add
+              to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Jalebi with Rabri.jpg" alt="Jalebi with Rabri Ice Cream">
+            <div class="card-text">Jalebi Rabri Ice Cream</div>
+            <div class="price">₹600</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Jalebi Rabri Ice Cream"
+              data-item-price="600">Add to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Mocha Almond Fudge.jpeg" alt="Mocha Almond Fudge">
+            <div class="card-text">Mocha Almond Fudge</div>
+            <div class="price">₹500</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Mocha Almond Fudge" data -item-price="500">Add
+              to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Pineapple Sorbet.jpeg" alt="Pineapple Sorbet ">
+            <div class="card-text">Pineapple Sorbet</div>
+            <div class="price">₹250</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Pineapple Sorbet" data-item-price="250">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Almond Butterscotch.png" alt="Almond Butterscotch">
+            <div class="card-text">Almond Butterscotch</div>
+            <div class="price">₹500</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Almond Butterscotch" data-item-price="500">Add
+              to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Death.jpg" alt="Death by Chocolate ">
+            <div class="card-text">Death by Chocolate</div>
+            <div class="price">₹550</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Death by Chocolate" data-item-price="550">Add
+              to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Ice cream/Tender Coconut.jpeg" alt="Tender Coconut">
+            <div class="card-text">Tender Coconut</div>
+            <div class="price">₹400</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Tender Coconut" data-item-price="400">Add to
+              Cart</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Footer -->
+    <footer class="text-center py-40>
+      <p>© 2024 Spice Fusion. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="icecream.js"></script>
+</body>
+
+</html>

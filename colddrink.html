@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colddrink</title>
+  <link rel="stylesheet" href="styles.css"> <!-- include common styles -->
+  <link rel="stylesheet" href="colddrink.css"><!-- colddrink- specific styles -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <div id="sidebar" class="fixed inset-y-0 left-0 w-64 bg-red-100 p-4 sidebar-content sidebar-hidden z-40">
+    <div class="flex items-center justify-center mb-8">
+      <div class="text-2xl font-semibold">
+        <img src="icons/logo.png" alt="Restaurant logo" class="sidebar-logo w-22 h-22 rounded-full">
+      </div>
+      <button id="closeSidebar" class="text-red-500 font-bold absolute top-4 right-4">
+        <i class="fas fa-times-circle border-0"></i>
+      </button>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <i class="fas fa-shopping-cart"></i>
+          <span>Cart</span>
+          <ul>
+            <li><a href="/cart.html">View Cart</a></li>
+            <li><a href="/checkout.html">Checkout</a></li>
+          </ul>
+        </li>
+        <li>
+          <i class="fas fa-history"></i>
+          <span>Order History</span>
+          <ul>
+            <li><a href="/history.html">View Order History</a></li>
+          </ul>
+        </li>
+        <li>
+          <i class="fas fa-user"></i>
+          <span>Account</span>
+          <ul>
+            <li><a href="/profile.html">View Profile</a></li>
+            <li><a href="/updateaccount.html">Update Account Information</a></li>
+            <li><a href="#" id="logout-button">Logout</a></li>
+          </ul>
+        </li>
+        <li>
+          <i class="fas fa-phone"></i>
+          <span>Support</span>
+          <ul>
+            <li><a href="/support.html#contact-us">Contact Us</a></li>
+            <li><a href="/support.html#faqs">FAQs</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <div id="content" class="transition-all duration-300 ml-0">
+
+    <!-- Navbar -->
+    <header class="text-white p-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <button id="openSidebar">
+          <!-- Three-dot Icon -->
+          <svg id="sidebarToggleIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+        <input id="search-box" type="text" placeholder="Search for items..."
+          class="w-full max-w-md p-2 rounded-lg outline-none">
+        <button id="search-button" class="search-button bg-white text-red-500 p-2 rounded-lg ml-2">Search</button>
+        <!-- Added search button -->
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="relative">
+          <span
+            class="bg-white text-red-500 p-2 rounded-full w-10 h-10 flex items-center justify-center transition-transform transform hover:scale-110 hover:shadow-lg cursor-pointer">
+            🔔
+          </span>
+          <span class="absolute inset-0 border border-red-500 rounded-full animate-revolving"></span>
+        </div>
+        <div id="notification-box" class="hidden absolute top-12 right-0 w-64 bg-white shadow-md rounded-lg p-4">
+          <h2>Notifications</h2>
+          <ul id="notification-list">
+            <li>
+              <h3>Buy 1 Get 1 Free</h3>
+              <p>On all pizzas</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>20% Off</h3>
+              <p>On all orders above ₹500</p>
+              <span class="offer-tag">Use Code: OFF20</span>
+            </li>
+            <li>
+              <h3>Free Delivery</h3>
+              <p>On all orders above ₹1000</p>
+              <span class="offer-tag">No Code Required</span>
+            </li>
+            <li>
+              <h3>Flat 30% Off</h3>
+              <p>On all burgers</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>Get 2 Free</h3>
+              <p>On all ice cream orders</p>
+              <span class="offer-tag">Use Code: ICECREAM2</span>
+            </li>
+            <li>
+              <h3>Buy 1 Get 1 Free</h3>
+              <p>On all pizzas</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>20% Off</h3>
+              <p>On all orders above ₹500</p>
+              <span class="offer-tag">Use Code: OFF20</span>
+            </li>
+            <li>
+              <h3>Free Delivery</h3>
+              <p> On all orders above ₹1000</p>
+              <span class="offer-tag">No Code Required</span>
+            </li>
+            <li>
+              <h3>Flat 30% Off</h3>
+              <p>On all burgers</p>
+              <span class="offer-tag">Limited Time Offer</span>
+            </li>
+            <li>
+              <h3>Get 2 Free</h3>
+              <p>On all ice cream orders</p>
+              <span class="offer-tag">Use Code: ICECREAM2</span>
+            </li>
+          </ul>
+        </div>
+        <!-- Username button -->
+        <button class="user-name" id="username-button">
+          <img src="images/myPhoto.jpg" alt="Profile Picture" class="profile-picture">
+          <span>Niranjan</span>
+          <span class="caret">
+            <i class="fas fa-caret-down"></i>
+          </span>
+        </button>
+        <!-- Username box -->
+        <div class="username-box" id="username-box">
+          <div class="username-box-header">
+            <img src="images/myPhoto.jpg" alt="Profile Picture" class="profile-picture-large">
+            <h2>Niranjan</h2>
+          </div>
+          <ul>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+          <div class="username-box-footer">
+            <p>Welcome, Niranjan!</p>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Main Content -->
+    <div class="container">
+      <!-- Page Title -->
+      <h1 class="page-title">Cold Drink</h1>
+      <!-- Section: Cold Drink -->
+      <section class="colddrink-section">
+        <h2>Cold drink:</h2>
+        <div class="card-container">
+          <div class="card">
+            <img src="images/Cold drink/Chaas.jpg" alt="Chaas">
+            <div class="card-text">Chaas</div>
+            <div class="price">₹180</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Chaas" data-item-price="180">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Maaza.png" alt="Maaza">
+            <div class="card-text">Maaza</div>
+            <div class="price">₹120</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Maaza" data-item-price="120">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Tamarindo.avif" alt="Tamarindo">
+            <div class="card-text">Tamarindo</div>
+            <div class="price">₹250</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Tamarindo" data-item-price="250">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Bovonto.jpeg" alt="Bovonto">
+            <div class="card-text">Bovonto </div>
+            <div class="price">₹200</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Bovonto" data-item-price="200">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Mountain Dew.jpeg" alt="Mountain Dew">
+            <div class="card-text">Mountain Dew</div>
+            <div class="price">₹220</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Mountain Dew" data-item-price="220">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/San Pellegrino Sparkling.jpeg" alt="San Pellegrino Sparkling Water">
+            <div class="card-text">San Pellegrino</div>
+            <div class="price">₹300</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="San Pellegrino" data-item-price="300">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Perrier Sparkling.jpeg" alt="Perrier Sparkling Water">
+            <div class="card-text">Sparkling Water</div>
+            <div class="price">₹280</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Sparkling Water" data-item-price="280">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Fever Tree Tonic.jpeg" alt="Fever-Tree Tonic Water">
+            <div class="card-text">Fever-Tree Tonic Water</div>
+            <div class="price">₹320</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Fever-Tree Tonic Water"
+              data-item-price="320">Add to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Schweppes Tonic.jpg" alt="Schweppes Tonic Wate">
+            <div class="card-text">Schweppes Tonic Wate</div>
+            <div class="price">₹250</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Schweppes Tonic Wate" data-item-price="250">Add
+              to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Coca Cola Zero.jpg" alt="Coca-Cola Zero">
+            <div class="card-text">Coca-Cola Zero</div>
+            <div class="price">₹350</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Coca-Cola Zero" data-item-price="350 ">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Pepsi Black.jpg" alt="Pepsi Black">
+            <div class="card-text">Pepsi Black</div>
+            <div class="price">₹380</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Pepsi Black" data-item-price="380">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Club Mate.jpg" alt="Club Mate">
+            <div class="card-text">Club Mate</div>
+            <div class="price">₹420</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Club Mate" data-item-price="420">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Horchata.jpeg" alt="Horchata">
+            <div class="card-text">Horchata</div>
+            <div class="price">₹400</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Horchata" data-item-price="400">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Hell.jpeg" alt="Hell Energy Drink">
+            <div class="card-text">Hell Energy Drink</div>
+            <div class="price">₹450</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Hell Energy Drink" data-item-price="450">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Monster.jpeg" alt="Monster Energy">
+            <div class="card-text">Monster Energy</div>
+            <div class="price">₹480</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Monster Energy" data-item-price="480">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Red Bull.jpeg" alt="Red Bull">
+            <div class="card-text">Red Bull</div>
+            <div class="price">₹500</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Red Bull" data-item-price="500">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Raw Pressery Almond Milk.jpg" alt="Raw Pressery Almond Milk">
+            <div class="card-text">Pressery Almond Milk</div>
+            <div class="price">₹520</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Pressery Almond Milk" data-item-price="520">Add
+              to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Keventers.jpeg" alt="Keventers">
+            <div class="card-text">Keventers </div>
+            <div class="price">₹550</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Keventers" data-item-price="550">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Twinings.jpeg" alt="Twinings Iced Tea">
+            <div class="card-text">Twinings Iced Tea</div>
+            <div class="price">₹580</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Twinings Iced Tea" data-item-price="580">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Starbucks Cold Brew.jpg" alt="Starbucks Cold Brew">
+            <div class="card-text">Starbucks Cold Brew</div>
+            <div class="price">₹600</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Starbucks Cold Brew" data-item-price="600">Add
+              to Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Root Beer.jpeg" alt=" Root Beer">
+            <div class="card-text">Root Beer</div>
+            <div class="price">₹620</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Root Beer" data-item-price="620">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Fiji.jpeg" alt="FIJI Water">
+            <div class="card-text">FIJI Water</div>
+            <div class="price">₹650</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="FIJI Water" data-item-price="650">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Vitamin.jpeg" alt=" VitaminWater">
+            <div class="card-text"> VitaminWater</div>
+            <div class="price">₹680</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="VitaminWater" data-item-price="680">Add to
+              Cart</button>
+          </div>
+          <div class="card">
+            <img src="images/Cold drink/Arizona Iced Tea.jpeg" alt="Arizona Iced Tea">
+            <div class="card-text">Arizona Iced Tea</div>
+            <div class="price">₹700</div>
+            <button class="add-to-cart" data-item-id="1" data-item-name="Arizona Iced Tea" data-item-price="700">Add to
+              Cart</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Footer -->
+    <footer class="text-center py-4">
+      <p>© 2024 Spice Fusion. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="colddrink.js"></script>
+</body>
+
+</html>

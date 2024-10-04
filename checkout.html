@@ -1,0 +1,106 @@
+<!-- checkout.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="checkout.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1><i class="fas fa-shopping-cart"></i> Checkout</h1>
+    <div class="cart-summary">
+      <h2>Order Summary</h2>
+      <table id="cart-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total Price</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+          <!-- cart items will be displayed here -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3">Total:</td>
+            <td id="total-price">$0.00</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="checkout-form">
+      <h2>Checkout Information</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="Niranjan Kumar Singh">
+        <label for="table-number">Table Number:</label>
+        <input type="number" id="table-number" name="table-number">
+        <label for="payment-mode">Payment Mode:</label>
+        <select id="payment-mode" name="payment-mode">
+          <option value="select">Select Payment Mode</option>
+          <option value="pay-now">Pay Now</option>
+          <option value="pay-after-meal">Pay After Meal</option>
+        </select>
+        <div id="payment-methods" style="display: none;">
+          <label for="payment-method">Payment Method:</label>
+          <select id="payment-method" name="payment-method">
+            <option value="select">Select Payment Method</option>
+            <option value="cash">Cash</option>
+            <option value="card">Card</option>
+            <option value="upi">UPI</option>
+          </select>
+          <div id="cash-methods" style="display: none;">
+            <label for="cash-amount">Cash Amount:</label>
+            <input type="number" id="cash-amount" name="cash-amount" readonly>
+            <i class="fas fa-rupee-sign"></i>
+          </div>
+          <div id="card-methods" style="display: none;">
+            <label for="card-number">Card Number:</label>
+            <input type="number" id="card-number" name="card-number">
+            <label for="card-expiry">Card Expiry:</label>
+            <div class="card-expiry">
+              <select id="card-expiry-month" name="card-expiry-month">
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+              </select>
+              <select id="card-expiry-year" name="card-expiry-year">
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+              </select>
+            </div>
+            <label for="card-cvv">Card CVV:</label>
+            <input type="number" id="card-cvv" name="card-cvv">
+          </div>
+          <div id="upi-methods" style="display: none;">
+            <label for="upi-id">UPI ID:</label>
+            <input type="text" id="upi-id" name="upi-id">
+          </div>
+        </div>
+        <button type="submit">Place Order</button>
+      </form>
+    </div>
+  </div>
+  <script src="checkout.js"></script>
+</body>
+</html>

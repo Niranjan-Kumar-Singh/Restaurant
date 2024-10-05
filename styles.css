@@ -25,16 +25,18 @@ section h2 {
   margin: 0; /* Reduces the space below heading in both sections */
 }
 
-/* Additionally, you can adjust the margin for the sections themselves */
-section {
-  margin: 0; /* Reduce this value to decrease space between sections */
-}
-
 /* Sidebar styles */
 .sidebar-content {
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
   height: 100vh; /* Full viewport height */
   overflow-y: auto; /* Enable vertical scrolling */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16rem; /* Width of the sidebar */
+  transform: translateX(-100%); /* Initially hide the sidebar */
+  opacity: 0;
+  z-index: 40; /* Ensure it's above the main content */
 }
 
 .sidebar-hidden {
@@ -52,6 +54,7 @@ section {
   border-right: 1px solid #8D99AE;
   padding: 20px;
   color: #8D99AE;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #sidebar button {
@@ -130,15 +133,68 @@ section {
 
 /* Main content styles */
 #content {
-  margin-left: 0;
   transition: margin-left 0.3s ease;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  position: relative; /* Ensure content stays in place */
+  z-index: 1; /* Ensure content is below the sidebar */
+  margin-left: 0;
 }
 
 #content.ml-64 {
   margin-left: 16rem;
 }
 
+/* When the sidebar is visible */
+.sidebar-visible + #content {
+  margin-left: 16rem; /* Adjust based on sidebar width */
+}
+
 /* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Ensures vertical centering */
+  padding: 10px; /* Adjust padding as needed */
+  background-color: #2B2D42;
+  color: #fff;
+  height: 60px; /* Define a height for the navbar */
+  flex-wrap: wrap;
+}
+
+.navbar > div {
+  display: flex;
+  align-items: center; /* Ensures vertical centering of child elements */
+}
+
+.navbar button,
+.navbar input {
+  margin: 0; /* Remove extra margins */
+  padding: 5px; /* Remove extra padding */
+  line-height: 1.5; /* Adjust line height if necessary */
+}
+
+.search-button {
+  background-color: #fff; /* Set background color */
+  color: #333; /* Set text color */
+  padding: 5px 10px; /* Add padding */
+  border-radius: 8px; /* Add rounded corners */
+  border: 1px solid #8D99AE; /* Add a border */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  margin-left: 10px; /* Add margin to separate from the search box */
+  font-size: 14px; /* Set font size */
+}
+
+.search-button:hover {
+  background-color: #ef4444; /* Change background color on hover */
+  color: #fff; /* Change text color on hover */
+}
+
+.notification-icon,
+.user-name {
+  margin-left: 10px;
+}
+
+
 header {
   display: flex;
   align-items: center;
@@ -170,13 +226,6 @@ header input {
   color: #ffffff;
 }
 
-.user-name {
-  color: #2B2D42;
-  font-size: 0.875rem; /* Smaller user name */
-  padding: 0.4rem 0.8rem; /* Reduce padding */
-  height: 35px;
-}
-
 header svg {
   width: 20px; /* Smaller icon size */
   height: 20px; /* Smaller icon size */
@@ -189,6 +238,10 @@ span {
 
 #categoryCards {
   z-index: 1; /* add this line */
+  display: flex;
+  justify-content: space-between; /* Center the grid container horizontally */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  gap: 0.5rem; /* Add some space between the cards */
 }
 
 /* Category Section Cards */
@@ -213,7 +266,7 @@ span {
   font-size: 1rem;
   font-weight: 700; /* Increase font weight to 700 (bold) */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
-  width: 150px;
+  width: 147px;
   height: 184px; /* Increase the height to add space after the image */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
@@ -244,13 +297,20 @@ span {
 }
 
 /* Best Selling Section - Larger Cards */
+#bestSellingCards {
+  display: flex;
+  justify-content: start; /* Center the grid container horizontally */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  gap: 1rem; /* Add some space between the cards */
+}
+
 #bestSellingCards .card {
   background-color: #333333;
   border-radius: 10px;
   text-align: center;
   font-size: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-  width: 190px;
+  width: 185px;
   height: 215px; /* Increase the height to add space after the image */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
@@ -293,38 +353,27 @@ span {
   display: none;
 }
 
-/* Best Selling Section - 6 items when sidebar is hidden */
-#bestSellingCards.grid-cols-6 {
-  grid-template-columns: repeat(6, 1fr);
-}
-
-/* Best Selling Section - 5 items when sidebar is visible */
-#bestSellingCards.grid-cols-5 {
-  grid-template-columns: repeat(5, 1fr);
-}
-
 .subtle-divider {
   border-color: #8D99AE;
   opacity: 0.6; /* To make the divider subtle */
 }
 
 #search-box {
-  width: 400px;
-  background-color: #ffffff; /* Change to your desired background color */
-  height: 35px; /* Ensure the search box height is consistent */
-  border: 1px solid #8D99AE; /* Optional: border for better visibility */
-  border-radius: 0.375rem; /* Optional: rounded corners */
-  padding: 0 0.5rem; /* Add some padding for better appearance */
-  color: #2B2D42; /* Text color */
+  width: 440px; /* Ensures it stretches to fill the available space */
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid #8D99AE;
+  outline: none;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #2B2D42;
 }
 
 footer {
   background-color: #2B2D42;
   color: white;
   text-align: center;
-  padding: 1rem;
   width: 100%;
-  position: fixed;
   bottom: 0;
   left: 0;
 }
@@ -343,14 +392,12 @@ footer {
   pointer-events: none; /* Prevent hover effect on the border */
 }
 
-
 /* Username button */
 .user-name {
   color: #2B2D42;
   font-family: 'Open Sans', sans-serif;
   font-size: 0.875rem;
   font-weight: bold;
-  padding: 0.2rem 0.4rem; /* Reduce padding */
   height: 35px;
   background-color: #EDF2F4;
   border: 1px solid #8D99AE;
@@ -651,4 +698,189 @@ footer {
 
 #logout-modal * {
   pointer-events: auto;
+}
+
+/* Responsive styles */
+/* Large tablets and smaller laptops */
+@media (min-width: 1281px) {
+  .sidebar-visible + #content {
+    margin-left: 0; /* No margin shift on smaller screens */
+  }
+}
+@media (max-width: 1280px) {
+  #search-box {
+    width: 380px;
+  }
+
+  .search-button {
+    padding: 2% 4%; /* Use percentage for padding */
+  }
+
+  .notification-icon {
+    margin-left: 2%; /* Use percentage for margin */
+  }
+
+  .sidebar-visible + #content {
+    margin-left: 0; /* No margin shift on smaller screens */
+  }
+
+  #categoryCards, #bestSellingCards {
+    justify-content: center;
+  }
+
+  #categoryCards .card {
+    justify-content: start;
+    width: 170px;
+    height: 185px;
+  }
+
+  #bestSellingCards .card {
+    justify-content:flex-start;
+    width: 170px;
+    height: 205px;
+  }
+}
+
+@media (max-width: 1024px) {
+  #search-box {
+    width: 340px;
+  }
+
+  .search-button {
+    padding: 2% 4%; /* Use percentage for padding */
+  }
+
+  .notification-icon {
+    margin-left: 2%; /* Use percentage for margin */
+  }
+
+  .sidebar-visible + #content {
+    margin-left: 0; /* No margin shift on smaller screens */
+  }
+
+  #categoryCards, #bestSellingCards {
+    justify-content: center;
+  }
+
+  #categoryCards .card {
+    justify-content: start;
+    width: 200px;
+    height: 185px;
+  }
+
+  #bestSellingCards .card {
+    width: 200px;
+    height: 205px;
+  }
+}
+
+/* Tablets and large smartphones */
+@media (max-width: 768px) {
+  header{
+    justify-content: start;
+  }
+  
+  #search-box {
+    width: 240px;
+  }
+
+  .search-button {
+    padding: 2% 3%; /* Use percentage for padding */
+  }
+
+  .notification-icon {
+    margin-left: 2%; /* Use percentage for margin */
+  }
+
+  .sidebar-visible + #content {
+    margin-left: 0; /* No margin shift on small screens */
+  }
+
+  .user-name {
+    display: none;
+  }
+
+  #categoryCards, #bestSellingCards {
+    justify-content: center;
+  }
+
+  #categoryCards .card {
+    justify-content: start;
+    width: 220px;
+    height: 185px;
+  }
+
+  #bestSellingCards .card {
+    width: 220px;
+    height: 205px;
+  }
+}
+
+/* Small smartphones */
+@media (max-width: 480px) {
+    #search-box {
+      width: 132px;
+    }
+
+    .search-button {
+      padding: 0;
+    }
+
+    .notification-icon {
+      margin-left: 1%; /* Use percentage for margin */
+    }
+
+    .user-name {
+      display: none; /* Hide username on small mobile screens */
+    }
+
+    .sidebar-content {
+      width: 100%; /* Full width on small screens */
+    }
+
+    .sidebar-visible + #content {
+      margin-left: 0; /* No margin shift on small screens */
+    }
+
+    #categoryCards, #bestSellingCards {
+      justify-content: center;
+    }
+
+    #categoryCards .card {
+      justify-content: start;
+      width: 220px;
+      height: 185px;
+    }
+
+    #bestSellingCards .card {
+      width: 220px;
+      height: 205px;
+    }
+
+  /* Extra small smartphones */
+  @media (max-width: 320px) {
+    #search-box,
+    .search-button {
+      display: none;
+    }
+
+    .notification-icon {
+      margin-left: 1%; /* Use percentage for margin */
+    }
+
+    #categoryCards, #bestSellingCards {
+      justify-content: center;
+    }
+
+    #categoryCards .card {
+      justify-content: start;
+      min-height: 220px;
+      min-height: 185px;
+    }
+
+    #bestSellingCards .card {
+      min-width: 220px;
+      min-height: 205px;
+    }
+  }
 }

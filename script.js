@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     { id: "burgerCard", url: "burger.html", category: "burger" },
     { id: "noodlesCard", url: "noodles.html", category: "noodles" },
     { id: "pastryCard", url: "pastry.html", category: "pastry" },
-    { id: "icecreamCard", url: "icecream.html", category: "ice cream" },
+    { id: "icecreamCard", url: "icecream.html", category: "icecream" },
     { id: "kebabsCard", url: "kebabs.html", category: "kebabs" },
     { id: "chickenCard", url: "chicken.html", category: "chicken" },
     { id: "colddrinkCard", url: "colddrink.html", category: "cold drink" },
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Add event listeners for each card
   cardsConfig.forEach(({ id, url }) => {
-    const card = document.querySelector(`#${id}`); // Select by ID
+    const card = document.querySelector(`#${id}`);
     if (card) {
       card.addEventListener("click", function () {
         window.location.href = url;
@@ -38,66 +38,57 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Best Selling Card configuration array
-const bestSellingCardsConfig = [
-  { class: "coffeeBest", url: "coffee.html", category: "coffee" },
-  { class: "pizzaBest", url: "pizza.html", category: "pizza" },
-  { class: "noodlesBest", url: "noodles.html", category: "noodles" },
-  { class: "burgerBest", url: "burger.html", category: "burger" },
-  { class: "icecreamBest", url: "icecream.html", category: "ice cream" },
-  { class: "pastryBest", url: "pastry.html", category: "pastry" },
-  { class: "kebabBest", url: "kebabs.html", category: "kebabs" },
-  { class: "chickenBest", url: "chicken.html", category: "chicken" },
-  { class: "colddrinkBest", url: "colddrink.html", category: "cold drink" },
-];
+  const bestSellingCardsConfig = [
+    { class: "coffeeBest", url: "coffee.html", category: "coffee" },
+    { class: "pizzaBest", url: "pizza.html", category: "pizza" },
+    { class: "noodlesBest", url: "noodles.html", category: "noodles" },
+    { class: "burgerBest", url: "burger.html", category: "burger" },
+    { class: "icecreamBest", url: "icecream.html", category: "icecream" },
+    { class: "pastryBest", url: "pastry.html", category: "pastry" },
+    { class: "kebabBest", url: "kebabs.html", category: "kebabs" },
+    { class: "chickenBest", url: "chicken.html", category: "chicken" },
+    { class: "colddrinkBest", url: "colddrink.html", category: "cold drink" },
+  ];
 
-bestSellingCardsConfig.forEach(({ class: className, url }) => {
-  const cards = document.querySelectorAll(`.${className}`); // Select by class
-  cards.forEach((card) => {
-    if (card) {
-      card.addEventListener("click", function () {
-        window.location.href = url;
-      });
-    }
+  bestSellingCardsConfig.forEach(({ class: className, url }) => {
+    const cards = document.querySelectorAll(`.${className}`);
+    cards.forEach((card) => {
+      if (card) {
+        card.addEventListener("click", function () {
+          window.location.href = url;
+        });
+      }
+    });
   });
-});
 
   function updateCategoryGrid() {
     if (sidebar.classList.contains("sidebar-visible")) {
-      categoryCards.classList.remove("grid-cols-9");
-      categoryCards.classList.add("grid-cols-7");
-      openSidebarButton.classList.add("hidden");
+      categoryCards.classList.remove("xl:grid-cols-9");
+      categoryCards.classList.add("xl:grid-cols-7");
     } else {
-      categoryCards.classList.remove("grid-cols-7");
-      categoryCards.classList.add("grid-cols-9");
-      openSidebarButton.classList.remove("hidden");
+      categoryCards.classList.remove("xl:grid-cols-7");
+      categoryCards.classList.add("xl:grid-cols-9");
     }
   }
 
   function updateBestSellingGrid() {
     if (sidebar.classList.contains("sidebar-visible")) {
-      bestSellingCards.classList.remove("grid-cols-7");
-      bestSellingCards.classList.add("grid-cols-5");
+      bestSellingCards.classList.remove("xl:grid-cols-7");
+      bestSellingCards.classList.add("xl:grid-cols-5");
     } else {
-      bestSellingCards.classList.remove("grid-cols-5");
-      bestSellingCards.classList.add("grid-cols-7");
+      bestSellingCards.classList.remove("xl:grid-cols-5");
+      bestSellingCards.classList.add("xl:grid-cols-7");
     }
   }
 
-  openSidebarButton.addEventListener("click", function () {
-    sidebar.classList.remove("sidebar-hidden");
-    sidebar.classList.add("sidebar-visible");
-    content.classList.add("ml-64");
+  function toggleSidebar() {
+    sidebar.classList.toggle("sidebar-visible");
     updateCategoryGrid();
     updateBestSellingGrid();
-  });
+  }
 
-  closeSidebarButton.addEventListener("click", function () {
-    sidebar.classList.remove("sidebar-visible");
-    sidebar.classList.add("sidebar-hidden");
-    content.classList.remove("ml-64");
-    updateCategoryGrid();
-    updateBestSellingGrid();
-  });
+  openSidebarButton.addEventListener("click", toggleSidebar);
+  closeSidebarButton.addEventListener("click", toggleSidebar);
 
   function closeElement(element, icon) {
     document.addEventListener("click", function (event) {
@@ -242,35 +233,35 @@ bestSellingCardsConfig.forEach(({ class: className, url }) => {
   });
 
   // Search functionality for filtering category cards
-searchBox.addEventListener("keyup", function () {
-  const searchTerm = this.value.toLowerCase().trim();
-  const categoryCardElements = document.querySelectorAll("#categoryCards .card");
+  searchBox.addEventListener("keyup", function () {
+    const searchTerm = this.value.toLowerCase().trim();
+    const categoryCardElements = document.querySelectorAll("#categoryCards .card");
 
-  // Hide all category cards initially
-  categoryCardElements.forEach((card) => {
-    card.style.display = "none";
-  });
+    // Hide all category cards initially
+    categoryCardElements.forEach((card) => {
+      card.style.display = "none";
+    });
 
-  // Show matching category card(s)
-  let found = false; // Track if a match is found
-  categoryCardElements.forEach((card) => {
-    const cardTitle = card.querySelector(".text-sm").textContent.toLowerCase();
-    if (cardTitle.includes(searchTerm)) {
-      card.style.display = "block";
-      found = true; // A match has been found
+    // Show matching category card(s)
+    let found = false; // Track if a match is found
+    categoryCardElements.forEach((card) => {
+      const cardTitle = card.querySelector(".text-sm").textContent.toLowerCase();
+      if (cardTitle.includes(searchTerm)) {
+        card.style.display = "block";
+        found = true; // A match has been found
+      }
+    });
+
+    // If no matches found, optionally show a message
+    if (!found && searchTerm) {
+      alert("No matching category found!");
+    } else if (searchTerm === "") {
+      // Show all cards if the search box is empty
+      categoryCardElements.forEach((card) => {
+        card.style.display = "block";
+      });
     }
   });
-
-  // If no matches found, optionally show a message
-  if (!found && searchTerm) {
-    alert("No matching category found!");
-  } else if (searchTerm === "") {
-    // Show all cards if the search box is empty
-    categoryCardElements.forEach((card) => {
-      card.style.display = "block";
-    });
-  }
-});
 
   // Initial category grid and best selling grid setup based on default sidebar state
   updateCategoryGrid();

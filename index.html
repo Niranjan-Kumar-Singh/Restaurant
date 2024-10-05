@@ -65,12 +65,11 @@
     </nav>
   </div>
 
-
   <!-- Main Content -->
   <div id="content" class="transition-all duration-300 ml-0">
     <!-- Navbar -->
-    <header class="text-white p-4 flex items-center justify-between">
-      <div class="flex items-center gap-4">
+    <header class="navbar text-white flex items-center justify-between">
+      <div class="flex items-center gap-2">
         <button id="openSidebar">
           <!-- Three-dot Icon -->
           <svg id="sidebarToggleIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -78,9 +77,8 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
           </svg>
         </button>
-        <input id="search-box" type="text" placeholder="Search for items..."
-          class="w-full max-w-md p-2 rounded-lg outline-none">
-        <button id="search-button" class="search-button bg-white text-red-500 p-2 rounded-lg ml-2">Search</button>
+        <input id="search-box" type="text" placeholder="Search for items..." class="search-box">
+        <button id="search-button" class="search-button">Search</button>
         <!-- Added search button -->
       </div>
       <div class="flex items-center gap-4">
@@ -172,63 +170,62 @@
       </div>
     </header>
 
-
     <!-- Categories Section -->
-    <main class="p-6 transition-all duration-300">
+    <main class="p-4 transition-all duration-300">
       <section class="mb-3">
         <h2 class="text-2xl font-semibold text-700 mb-2">Category</h2>
-        <div id="categoryCards" class="grid grid-cols-6 gap-3">
-          <div id="coffeeCard" class="card bg-red-100 text-center rounded-lg shadow-md id=" coffeeCard">
+        <div id="categoryCards" class="grid grid-cols-9 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-9">          <!-- Category cards here -->
+          <div id="coffeeCard" class="card bg-red-100 text-center rounded-lg shadow-md overflow-hidden">
             <div class="card-image">
-              <img src="images/Categories/coffee.jpeg" alt="Coffee" class="w-full rounded-lg mb-2">
+              <img src="images/Categories/coffee.jpeg" alt="Coffee" class="w-full h-auto rounded-lg mb-2">
             </div>
             <div class="text-sm">Coffee</div>
           </div>
-          <div id="pizzaCard" class="card bg-red-100 text-center rounded-lg shadow-md" id="pizzaCard">
+          <div id="pizzaCard" class="card bg-red-100 text-center rounded-lg shadow -md overflow-hidden">
             <div class="card-image">
-              <img src="images/Categories/pizza.jpeg" alt="Pizza" class="w-full rounded-lg mb-2">
+              <img src="images/Categories/pizza.jpeg" alt="Pizza" class="w-full h-auto rounded-lg mb-2">
             </div>
             <div class="text-sm">Pizza</div>
           </div>
-          <div id="noodlesCard" class="card bg-red-100 text-center rounded-lg shadow-md" id="noodlesCard">
+          <div id="noodlesCard" class="card bg-red-100 text-center rounded-lg shadow-md overflow-hidden">
             <div class="card-image">
-              <img src="images/Categories/noodles.jpeg" alt="Noodles" class="w-full rounded-lg mb-2">
+              <img src="images/Categories/noodles.jpeg" alt="Noodles" class="w-full h-auto rounded-lg mb-2">
             </div>
             <div class="text-sm">Noodles</div>
           </div>
-          <div id="burgerCard" class="card bg-red-100 text-center rounded-lg shadow-md" id="burgerCard">
+          <div id="burgerCard" class="card bg-red-100 text-center rounded-lg shadow-md overflow-hidden">
             <div class="card-image">
-              <img src="images//Categories/burger.jpeg" alt="Burger" class="w-full rounded-lg mb-2">
+              <img src="images/Categories/burger.jpeg" alt="Burger" class="w-full h-auto rounded-lg mb-2">
             </div>
             <div class="text-sm">Burger</div>
           </div>
-          <div id="pastryCard" class="card bg-red-100 text-center rounded-lg shadow-md" id="pastryCard">
-            <div class="card-image">
-              <img src="images/Categories/pastry.jpeg" alt="Pastry" class="w-full rounded-lg mb-2">
+          <div class="card bg-red-100 text-center rounded-lg shadow-md overflow-hidden">
+            <div id="pastryCard" class="card-image">
+              <img src="images/Categories/pastry.jpeg" alt="Pastry" class="w-full h-auto rounded-lg mb-2">
             </div>
             <div class="text-sm">Pastry</div>
           </div>
-          <div id="icecreamCard" class="card bg-red-100 text-center rounded-lg shadow-md" id="icecreamCard">
+          <div id="icecreamCard" class="card bg-red-100 text-center rounded-lg shadow-md overflow-hidden">
             <div class="card-image">
-              <img src="images/Categories/ice_cream.jpeg" alt="Cold Drink" class="w-full rounded-lg mb-2">
+              <img src="images/Categories/ice_cream.jpeg" alt="Cold Drink" class="w-full h-auto rounded-lg mb-2">
             </div>
             <div class="text-sm">Ice Cream</div>
           </div>
-          <div id="kebabsCard" class="card bg-red-100 text-center rounded-lg shadow-md" id="kebabsCard">
+          <div id="kebabsCard" class="card bg-red-100 text-center rounded-lg shadow-md overflow-hidden">
             <div class="card-image">
-              <img src="images/Categories/kebabs.jpeg" alt="Cold Drink" class="w-full rounded-lg mb-2">
+              <img src="images/Categories/kebabs.jpeg" alt="Cold Drink" class="w-full h-auto rounded-lg mb-2">
             </div>
             <div class="text-sm">Kebabs</div>
           </div>
-          <div id="chickenCard" class="card bg-red-100 text-center rounded-lg shadow-md" id="chickenCard">
+          <div id="chickenCard" class="card bg-red-100 text-center rounded-lg shadow-md overflow-hidden">
             <div class="card-image">
-              <img src="images/Categories/chicken.jpeg" alt="Cold Drink" class="w-full rounded-lg mb-2">
+              <img src="images/Categories/chicken.jpeg" alt="Cold Drink" class="w-full h-auto rounded-lg mb-2">
             </div>
             <div class="text-sm">Chicken</div>
           </div>
-          <div id="colddrinkCard" class="card bg-red-100 text-center rounded-lg shadow-md" id="colddrinkCard">
+          <div id="colddrinkCard" class="card bg-red-100 text-center rounded-lg shadow-md overflow-hidden">
             <div class="card-image">
-              <img src="images/Categories/cold_drink.jpeg" alt="Cold Drink" class="w-full rounded-lg mb-2">
+              <img src="images/Categories/cold_drink.jpeg" alt="Cold Drink" class="w-full h-auto rounded-lg mb-2">
             </div>
             <div class="text-sm">Cold Drink</div>
           </div>
@@ -238,7 +235,8 @@
       <!-- Best Selling Section -->
       <section>
         <h2 class="text-2xl font-semibold text-700 mb-2">Best Selling</h2>
-        <div id="bestSellingCards" class="grid grid-cols-4 gap-4">
+        <div id="bestSellingCards"
+          class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-7">
           <!-- Coffee Category -->
           <div class="card coffeeBest bg-red-100 text-center rounded-lg shadow-md">
             <div class="card-image">
@@ -363,7 +361,7 @@
     <!-- Footer -->
     <footer class="text-center py-4">
       <div id="confirmation-message" style="display: none;">You have been logged out successfully.</div>
-      <p>© 2024 Spice Fusion. All rights reserved.</p>
+      <p> 2024 Spice Fusion. All rights reserved.</p>
     </footer>
   </div>
 </body>

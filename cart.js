@@ -8,12 +8,12 @@ checkoutBtn.addEventListener('click', () => {
 });
 
 let cart = [
-    { id: 1, name: "Cappuccino", price: 5, quantity: 4, category: "Beverages" },
-    { id: 2, name: "Cheeseburger", price: 10, quantity: 2, category: "Food" },
-    { id: 3, name: "Fried Chicken", price: 8, quantity: 1, category: "Food" },
-    { id: 4, name: "Coca Cola", price: 3, quantity: 3, category: "Beverages" },
-    { id: 5, name: "Margherita Pizza", price: 12, quantity: 1, category: "Food" },
-    { id: 6, name: "Chocolate Éclair", price: 6, quantity: 4, category: "Pastry" }
+    { id: 1, name: "Cappuccino", price: 180, quantity: 4, category: "coffee" },
+    { id: 2, name: "Cheeseburger Pizza", price: 390, quantity: 2, category: "pizza" },
+    { id: 3, name: "Fried Chicken", price: 120, quantity: 1, category: "chicken" },
+    { id: 4, name: "Coca-Cola Zero", price: 350, quantity: 3, category: "cold_drink" },
+    { id: 5, name: "Margherita Pizza", price: 180, quantity: 1, category: "pizza" },
+    { id: 6, name: "Chocolate Éclair", price: 300, quantity: 4, category: " pastry" }
   ];
   
   function displayCartItems() {
@@ -24,7 +24,7 @@ let cart = [
       const row = document.createElement('tr');
       row.innerHTML = `
         <td>${item.name}</td>
-        <td>$${item.price}</td>
+        <td>₹${item.price}</td>
         <td>
          <div class="quantity-controls">
           <span>${item.quantity}</span>
@@ -33,7 +33,7 @@ let cart = [
             <button class="decrease-quantity" data-item-id="${item.id}">-</button>
           </div>
         </td>
-        <td id="total-price-${item.id}">$${item.price * item.quantity}</td>
+        <td id="total-price-${item.id}">₹${item.price * item.quantity}</td>
       `;
       cartItems.appendChild(row);
     });
@@ -42,7 +42,7 @@ let cart = [
     totalRow.classList.add('total-row');
     totalRow.innerHTML = `
       <td colspan="3">Total:</td>
-      <td id="total-amount">$${cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}</td>
+      <td id="total-amount">₹${cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}</td>
     `;
     cartItems.appendChild(totalRow);
   }
@@ -69,7 +69,7 @@ let cart = [
     if (item) {
       item.quantity++;
       const totalPriceElement = document.getElementById(`total-price-${item.id}`);
-      totalPriceElement.textContent = `$${item.price * item.quantity}`;
+      totalPriceElement.textContent = `₹${item.price * item.quantity}`;
       const quantityElement = totalPriceElement.parentNode.parentNode.cells[2].children[0];
       quantityElement.textContent = item.quantity;
       updateTotalAmount();
@@ -86,7 +86,7 @@ let cart = [
         addEventListeners();
       } else {
         const totalPriceElement = document.getElementById(`total-price-${item.id}`);
-        totalPriceElement.textContent = `$${item.price * item.quantity}`;
+        totalPriceElement.textContent = `₹${item.price * item.quantity}`;
         const quantityElement = totalPriceElement.parentNode.parentNode.cells[2].children[0];
         quantityElement.textContent = item.quantity;
         updateTotalAmount();
@@ -96,7 +96,7 @@ let cart = [
   
   function updateTotalAmount() {
     const totalAmountElement = document.getElementById('total-amount');
-    totalAmountElement.textContent = `$${cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}`;
+    totalAmountElement.textContent = `₹${cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}`;
   }
   
   displayCartItems();

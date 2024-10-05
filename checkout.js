@@ -2,12 +2,12 @@
 
 // Sample cart items data
 const cartItems = [
-    { id: 1, name: "Cappuccino", price: 5, quantity: 4, category: "Beverages" },
-    { id: 2, name: "Cheeseburger", price: 10, quantity: 2, category: "Food" },
-    { id: 3, name: "Fried Chicken", price: 8, quantity: 1, category: "Food" },
-    { id: 4, name: "Coca Cola", price: 3, quantity: 3, category: "Beverages" },
-    { id: 5, name: "Margherita Pizza", price: 12, quantity: 1, category: "Food" },
-    { id: 6, name: "Chocolate Éclair", price: 6, quantity: 4, category: " Pastry" }
+    { id: 1, name: "Cappuccino", price: 180, quantity: 4, category: "coffee" },
+    { id: 2, name: "Cheeseburger Pizza", price: 390, quantity: 2, category: "pizza" },
+    { id: 3, name: "Fried Chicken", price: 120, quantity: 1, category: "chicken" },
+    { id: 4, name: "Coca-Cola Zero", price: 350, quantity: 3, category: "cold_drink" },
+    { id: 5, name: "Margherita Pizza", price: 180, quantity: 1, category: "pizza" },
+    { id: 6, name: "Chocolate Éclair", price: 300, quantity: 4, category: " pastry" }
   ];
   
   // Function to calculate the total price
@@ -27,14 +27,14 @@ const cartItems = [
           <tr>
             <td>${item.name}</td>
             <td>${item.quantity}</td>
-            <td>$${item.price}</td>
-            <td>$${(item.quantity * item.price).toFixed(2)}</td>
+            <td>₹${item.price}</td>
+            <td>₹${(item.quantity * item.price).toFixed(2)}</td>
           </tr>
         `;
       })
       .join("");
     document.getElementById("cart-items").innerHTML = cartItemsHtml;
-    document.getElementById("total-price").textContent = `$${calculateTotalPrice()}`;
+    document.getElementById("total-price").textContent = `₹${calculateTotalPrice()}`;
   }
   
   // Function to handle the payment mode selection
